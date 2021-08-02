@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:gravity="center"
         android:id="@+id/TextViewMarca"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -28,7 +29,18 @@
         app:layout_constraintStart_toEndOf="@+id/carAvatar"
         app:layout_constraintTop_toTopOf="@+id/carAvatar" />
 
+    <Button
+        android:id="@+id/ButtonAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecionar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/TextViewModelo"
+        app:layout_constraintStart_toStartOf="@+id/TextViewModelo"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewModelo" />
+
     <TextView
+        android:gravity="center"
         android:id="@+id/TextViewModelo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
