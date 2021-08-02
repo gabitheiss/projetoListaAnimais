@@ -37,6 +37,10 @@ class AdapterListAnimals(
     fun removeAt(animals: Animals){
         listOfAnimals.remove(animals)
         notifyDataSetChanged()
+
+    } fun add(animals: Animals){
+        listOfAnimals.add(animals)
+        notifyDataSetChanged()
     }
 
 

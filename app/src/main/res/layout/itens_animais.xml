@@ -58,7 +58,8 @@
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/carAvatar" />
+        app:layout_constraintStart_toEndOf="@+id/carAvatar"
+        tools:ignore="UnknownId" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
