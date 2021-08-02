@@ -10,16 +10,23 @@ import com.bumptech.glide.Glide
 import com.listaanimais.R
 import com.listaanimais.model.Animals
 
-class AdapterListAnimals (
-    var listOfAnimals: List<Animals>) : RecyclerView.Adapter<ItemAnimalsViewHolder>() {
+class AdapterListAnimals(
+    var listOfAnimals: List<Animals>,
+    var onClick: (Animals) -> Unit
+) : RecyclerView.Adapter<ItemAnimalsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAnimalsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.itens_animais,parent,false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.itens_animais, parent, false)
         return ItemAnimalsViewHolder(view)
     }
+
     override fun onBindViewHolder(viewHolder: ItemAnimalsViewHolder, position: Int) {
         listOfAnimals[position].apply {
             viewHolder.bind(this)
+            viewHolder.itemView.setOnClickListener{
+                onClick(this)
+            }
         }
     }
 
@@ -28,7 +35,7 @@ class AdapterListAnimals (
     }
 
 
-    }
+}
 
 
 class ItemAnimalsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -41,10 +48,10 @@ class ItemAnimalsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         itemView.findViewById<TextView>(R.id.TextViewModelo).apply {
             text = animals.corAnimal
         }
-        itemView.findViewById<ImageView>(R.id.animalAvatar).apply{
+        itemView.findViewById<ImageView>(R.id.animalAvatar).apply {
             Glide.with(context)
                 .load(animals.imagem.url)
-
+                .placeholder(R.drawable.ic_launcher_foreground)
                 .into(this)
         }
 

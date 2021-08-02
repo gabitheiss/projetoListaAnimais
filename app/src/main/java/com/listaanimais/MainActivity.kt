@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.listaanimais.adapter.AdapterListAnimals
 import com.listaanimais.model.AnimalEnum
 import com.listaanimais.model.Animals
@@ -30,7 +31,16 @@ class MainActivity : AppCompatActivity() {
 
         animalRecyclerView = findViewById(R.id.animalRecyclerView)
         animalRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        animalRecyclerView.adapter = AdapterListAnimals(listOfAnimals)
+        animalRecyclerView.adapter = AdapterListAnimals(listOfAnimals){
+            onClick(it)
+        }
+
+
+    }
+
+    fun onClick(animals : Animals){
+        Snackbar.make(animalRecyclerView,animals.nomeAnimal,Snackbar.LENGTH_LONG).show()
+
     }
 }
 
