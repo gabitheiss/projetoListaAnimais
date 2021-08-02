@@ -1,6 +1,8 @@
 package com.listaanimais.model
 
-enum class AnimalEnum (val url: String){
+import java.io.Serializable
+
+enum class AnimalEnum (val url: String) :Serializable{
     CACHORROMARROM ("https://www.petz.com.br/blog/wp-content/uploads/2021/03/piercing-para-cachorro-2.jpg"),
     CACHORROBRANCO("https://uploads.metropoles.com/wp-content/uploads/2020/07/28161212/Cachorro-branco-Getty-Images-600x400.jpg"),
     GATOPRETO ("https://blog.cobasi.com.br/wp-content/uploads/2020/11/gato-preto-fim.png"),

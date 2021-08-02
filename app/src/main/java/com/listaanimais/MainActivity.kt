@@ -1,5 +1,6 @@
 package com.listaanimais
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -18,9 +19,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //chamar botao para remover
+
+
+
+        //chamar botao para adicionar novo animal
         findViewById<Button>(R.id.buttonAdd).apply {
-            setOnClickListener {OnClickAddNewAnimal()}
+            setOnClickListener {onClickAddNewAnimal()}
         }
 
         val listOfAnimals = mutableListOf<Animals>(
@@ -34,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         adapter = AdapterListAnimals(listOfAnimals) {
-          onClick(it)
+          onClickItemAnimal(it)
         }
 
         animalRecyclerView = findViewById(R.id.animalRecyclerView)
@@ -44,10 +48,16 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    fun onClick(animals : Animals){
-        adapter.removeAt(animals)
+
+    private fun onClickItemAnimal(animals : Animals) {
+        // criar intent intenção
+        val intentParaDEtalhesDoAnimal = Intent(this, DetailAnimalsActivity::class.java)
+        intentParaDEtalhesDoAnimal.putExtra("parametro_animal", animals)
+        startActivity(intentParaDEtalhesDoAnimal)
     }
-    fun OnClickAddNewAnimal(){
+
+
+    fun onClickAddNewAnimal(){
         adapter.add(Animals("Cavalo","Branco", AnimalEnum.CAVALO))
     }
 }

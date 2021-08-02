@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".DetailAnimalsActivity">
+
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_margin="12dp"/>
+
+    <TextView
+        android:id="@+id/nomeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textStyle="italic|bold"
+        android:text="Nome"/>
+    <TextView
+        android:id="@+id/corTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textStyle="italic|bold"
+        android:text="Cor"/>
+
+
+</LinearLayout>

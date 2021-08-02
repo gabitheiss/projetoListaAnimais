@@ -29,10 +29,10 @@
         tools:text="Animal" />
 
     <Button
-        android:id="@+id/ButtonAnimal"
+        android:id="@+id/buttonExcluir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selecionar"
+        android:text="Excluir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/TextViewModelo"
         app:layout_constraintStart_toStartOf="@+id/TextViewModelo"
