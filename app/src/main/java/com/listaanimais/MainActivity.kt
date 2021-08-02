@@ -12,12 +12,13 @@ import com.listaanimais.model.Animals
 class MainActivity : AppCompatActivity() {
 
     private lateinit var animalRecyclerView: RecyclerView
+    private lateinit var adapter: AdapterListAnimals
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val listOfAnimals = listOf<Animals>(
+        val listOfAnimals = mutableListOf<Animals>(
             Animals("Cachorro","Branco", AnimalEnum.CACHORROBRANCO),
             Animals("Cachorro","Marrom", AnimalEnum.CACHORROMARROM),
             Animals("Gato","Preto", AnimalEnum.GATOPRETO),
@@ -27,19 +28,20 @@ class MainActivity : AppCompatActivity() {
 
         )
 
-
+        adapter = AdapterListAnimals(listOfAnimals) {
+          onClick(it)
+        }
 
         animalRecyclerView = findViewById(R.id.animalRecyclerView)
         animalRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        animalRecyclerView.adapter = AdapterListAnimals(listOfAnimals){
-            onClick(it)
-        }
+        animalRecyclerView.adapter = adapter
+
 
 
     }
 
     fun onClick(animals : Animals){
-        Snackbar.make(animalRecyclerView,animals.nomeAnimal,Snackbar.LENGTH_LONG).show()
+        adapter.removeAt(animals)
 
     }
 }

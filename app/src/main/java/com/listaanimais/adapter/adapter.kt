@@ -11,7 +11,7 @@ import com.listaanimais.R
 import com.listaanimais.model.Animals
 
 class AdapterListAnimals(
-    var listOfAnimals: List<Animals>,
+    var listOfAnimals: MutableList<Animals>,
     var onClick: (Animals) -> Unit
 ) : RecyclerView.Adapter<ItemAnimalsViewHolder>() {
 
@@ -32,6 +32,11 @@ class AdapterListAnimals(
 
     override fun getItemCount(): Int {
         return listOfAnimals.size
+    }
+
+    fun removeAt(animals: Animals){
+        listOfAnimals.remove(animals)
+        notifyDataSetChanged()
     }
 
 
