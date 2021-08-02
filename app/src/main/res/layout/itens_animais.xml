@@ -6,9 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:id="@+id/carAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/animalAvatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_margin="12dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,18 +16,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:gravity="center"
         android:id="@+id/TextViewMarca"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        tools:text="Animal"
+        android:gravity="center"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/carAvatar"
-        app:layout_constraintTop_toTopOf="@+id/carAvatar" />
+        app:layout_constraintStart_toEndOf="@+id/animalAvatar"
+        app:layout_constraintTop_toTopOf="@+id/animalAvatar"
+        tools:text="Animal" />
 
     <Button
         android:id="@+id/ButtonAnimal"
@@ -40,16 +39,15 @@
         app:layout_constraintTop_toBottomOf="@+id/TextViewModelo" />
 
     <TextView
-        android:gravity="center"
         android:id="@+id/TextViewModelo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
+        android:gravity="center"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/carAvatar"
+        app:layout_constraintStart_toEndOf="@+id/animalAvatar"
         app:layout_constraintTop_toBottomOf="@+id/TextViewMarca"
         tools:text="Cor do animal" />
 
