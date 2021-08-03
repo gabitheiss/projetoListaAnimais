@@ -29,7 +29,7 @@
         tools:text="Animal" />
 
     <Button
-        android:id="@+id/buttonExcluir"
+        android:id="@+id/buttonDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Excluir"

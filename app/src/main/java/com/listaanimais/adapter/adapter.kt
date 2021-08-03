@@ -3,16 +3,18 @@ package com.listaanimais.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.listaanimais.MainActivity
 import com.listaanimais.R
 import com.listaanimais.model.Animals
 
 class AdapterListAnimals(
     var listOfAnimals: MutableList<Animals>,
-    var onClick: (Animals) -> Unit
+    var onClickableItem: MainActivity
 ) : RecyclerView.Adapter<ItemAnimalsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAnimalsViewHolder {
@@ -24,11 +26,16 @@ class AdapterListAnimals(
     override fun onBindViewHolder(viewHolder: ItemAnimalsViewHolder, position: Int) {
         listOfAnimals[position].apply {
             viewHolder.bind(this)
-            viewHolder.itemView.setOnClickListener{
-                onClick(this)
+
+            viewHolder.itemView.findViewById<Button>(R.id.buttonDelete).let{
+            it.setOnClickListener {
+                onClickableItem.onDelete(this)
+              }
+             }
             }
         }
-    }
+
+
 
     override fun getItemCount(): Int {
         return listOfAnimals.size
@@ -43,9 +50,7 @@ class AdapterListAnimals(
         notifyDataSetChanged()
     }
 
-
 }
-
 
 class ItemAnimalsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
